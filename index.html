@@ -20,7 +20,14 @@
         }
         
         console.log("about to fetch rainbow");
-        getRainbow();
+        getRainbow()
+        .then(res => {
+            console.log("damn nice rainbow dud");
+        })
+        .catch(err => {
+            console.log("No dom elem for that ID STOOOOOPID!!!")
+            console.error(err);
+        });
 
 
 
