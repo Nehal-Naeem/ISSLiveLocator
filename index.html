@@ -7,16 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <img src = "" id = "rainbow" />
+    <img src = "" id = "rainbow" width = 420 />
     <script>
+
+        async function getRainbow() {
+            // resp will be the fetched img
+            let resp = await fetch("rainbow.jpg");
+            // assign blob once the image has been fetched
+            let blob = await resp.blob();
+            // assign dom element using the bob of the blob propertty of the initial resp
+            document.getElementById("rainbow").src = URL.createObjectURL(blob);
+        }
+        
         console.log("about to fetch rainbow");
-        fetch("rainbow.jpg")
-        .then(response => {
-            return response.blob();
-        })
-        .then(response => {
-            console.log(response);
-        });
+        getRainbow();
+
+
+
+        // fetch("rainbow.jpg")
+        // .then(response => {
+        //     console.log(response);
+        //     return response.blob();
+        // })
+        // .then(blob => {
+        //     console.log(blob);
+        //     document.getElementById('rainbow').src = URL.createObjectURL(blob);
+        // })
+        // .catch(err => {
+        //     console.log("No dom elem for that ID STOOOOOPID!!!")
+        //     console.error(err);
+        // });
     </script>
 </body>
 </html>
