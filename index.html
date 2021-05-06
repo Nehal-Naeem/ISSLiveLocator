@@ -10,7 +10,13 @@
     <img src = "" id = "rainbow" />
     <script>
         console.log("about to fetch rainbow");
-        fetch("rainbow.jpg");
+        fetch("rainbow.jpg")
+        .then(response => {
+            return response.blob();
+        })
+        .then(response => {
+            console.log(response);
+        });
     </script>
 </body>
 </html>
