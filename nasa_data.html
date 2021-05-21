@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Get year and differnce from mean temp fr each year and logging thsi to console for all records
+        
+        async function getdata() {
+            let response = await fetch("ZonAnn.Ts+dSST.csv");
+            let data = await response.text();
+
+            let rows = data.trim().split('\n').slice(1);
+
+            for (r of rows) {
+                let record = r.split(',');
+                let year = record[0];
+                let temp = record[1];
+
+                console.log(year, temp);
+            }
+        }
+
+        getdata();
+    </script>
+    
+</body>
+</html>
