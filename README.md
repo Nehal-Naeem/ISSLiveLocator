@@ -1,2 +1,2 @@
 # JS-API-TUT
-following JS APIs and data tut form the coding train YouTube channel
+📕 following JS APIs and data tutorial form the coding train YouTube channel 
